@@ -29,11 +29,8 @@ exports.contactMe = functions.https.onRequest((request, response) => {
 });
 
 function mailBody(name,email,message,time){
-  var emailTemplate = '';
-
-  var body = "You just received a message from DJRaval Web.";
-  body = body+"<hr>Name:<br>"+name+"<hr>Email:<br>"+email+"<hr>Message:<br>"+message+"<hr>Time:<br>"+new Date(time);
-  return body;
+  var emailTemplate = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>DJRaval Web</title><style type="text/css"></style></head><body style="margin:0; padding:0; background-color:#F2F2F2;"><center><table border="0" cellpadding="0" cellspacing="0" bgcolor="#F2F2F2"><tr><td align="center" valign="top"> You just received a message from DJRaval Web.<hr><br><table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#F2F2F2" ><tr><td><b>Name</b></td><td>'+name+'</td></tr><tr><td><b>Email</b></td><td>'+email+'</td></tr><tr><td><b>Message</b></td><td>'+message+'</td></tr><tr><td><b>Time</b></td><td>'+new Date(time)+'</td></tr></table></td></tr></table></center></body></html>';
+  return emailTemplate;
 }
 
 function pushToDB(name,email,message){
