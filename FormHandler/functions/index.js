@@ -24,7 +24,7 @@ exports.contactMe = functions.https.onRequest((request, response) => {
         mailBody(data_name,data_email,data_message,data_timestamp)
       );
         
-      response.status(200).end();
+      response.status(200).send('{"result": true,"message": "#","alert": "I Got your message, will get back to you soon."}');
     }); 
 });
 
