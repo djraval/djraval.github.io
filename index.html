@@ -1651,12 +1651,19 @@
             this.$submit.disabled = true;
             handler = function(values) {
                 var x, k, data;
-                data = new FormData(_this.$form);
-                if (values)
-                    for (k in values) data.append(k, values[k]);
+                var frm_new = _this.$form;
+
+                var name = document.getElementById('form01-name').value;
+                var email = document.getElementById('form01-email').value;
+                var message = document.getElementById('form01-msg').value;
+                var qstr = "name="+name+"&email="+email+"&msg="+message;
+                
+                qstr = encodeURI(qstr);
+            
                 x = new XMLHttpRequest();
-                x.open('POST', ['https://server.com', 'backend', _this.request].join('/'));
-                x.send(data);
+                x.open('POST', ['https://us-central1-djraval-website.cloudfunctions.net', _this.request].join('/'));
+                x.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+                x.send(qstr);
                 x.onreadystatechange = function() {
                     var result = false,
                         message = 'Sorry, something went wrong. Please try again later.',
@@ -1686,7 +1693,7 @@
             else(handler)();
         };
         new form('form01', {
-            request: 'mail.php',
+            request: 'contactMe',
             method: 'post',
             hid: 'message',
             success: '#sent',
