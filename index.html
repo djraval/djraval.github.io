@@ -1678,6 +1678,7 @@
                             if ('alert' in o) alert = (o.alert === true);
                         }
                     }
+                    
                     if (result) {
                         _this.$form.reset();
                         if (alert) window.alert(message);
@@ -1686,6 +1687,7 @@
                         if (alert) window.alert(message);
                         else _this.notify('failure', (_this.failure ? _this.failure : message));
                     }
+                    
                     _this.$submit.disabled = false;
                 };
             };
