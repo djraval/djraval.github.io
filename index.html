@@ -1319,28 +1319,36 @@
                             <a class="n01" href="#contact">
                                 <svg>
                                     <use xlink:href="#icon-901"></use>
-                                </svg><span class="label">Email (alt)</span></a>
+                                </svg>
+                                <span class="label">Email (alt)</span>
+                            </a>
                         </li>
                         <li>
-                            <a class="n02" href="https://twitter.com/_djraval">
+                            <a class="n02" href="https://twitter.com/_djraval" target="_blank">
                                 <svg>
                                     <use xlink:href="#icon-905"></use>
-                                </svg><span class="label">Twitter</span></a>
+                                </svg>
+                                <span class="label">Twitter</span>
+                            </a>
                         </li>
                         <li>
-                            <a class="n03" href="https://www.facebook.com/cheatzz">
+                            <a class="n03" href="https://www.facebook.com/cheatzz" target="_blank">
                                 <svg>
                                     <use xlink:href="#icon-906"></use>
-                                </svg><span class="label">Facebook</span></a>
+                                </svg>
+                                <span class="label">Facebook</span>
+                            </a>
                         </li>
                         <li>
-                            <a class="n04" href="https://www.instagram.com/cheatsec">
+                            <a class="n04" href="https://www.instagram.com/cheatsec" target="_blank">
                                 <svg>
                                     <use xlink:href="#icon-910"></use>
-                                </svg><span class="label">Instagram</span></a>
+                                </svg>
+                                <span class="label">Instagram</span>
+                            </a>
                         </li>
                         <li>
-                            <a class="n05" href="https://github.com/djraval">
+                            <a class="n05" href="https://github.com/djraval" target="_blank">
                                 <svg>
                                     <use xlink:href="#icon-944"></use>
                                 </svg>
@@ -1603,8 +1611,10 @@
             this.$submit.disabled = false;
         };
         form.prototype.notify = function(type, message) {
-            if (message.match(/^(#[a-zA-Z0-9\_\-]+|[a-z0-9\-\.]+:[a-zA-Z0-9\~\!\@\#$\%\&\-\_\+\=\;\,\.\?\/\:]+)$/)) location.href = message;
-            else alert((type == 'failure' ? 'Error: ' : '') + message);
+            if (message.match(/^(#[a-zA-Z0-9\_\-]+|[a-z0-9\-\.]+:[a-zA-Z0-9\~\!\@\#$\%\&\-\_\+\=\;\,\.\?\/\:]+)$/)) 
+                location.href = message;
+            else 
+                alert((type == 'failure' ? 'Error: ' : '') + message);
         };
         form.prototype.submit = function(event) {
             var _this = this,
@@ -1673,19 +1683,26 @@
                     if (x.status == 200) {
                         o = JSON.parse(x.responseText);
                         if (o) {
-                            if ('result' in o) result = (o.result === true);
-                            if (('message' in o) && o.message) message = o.message;
-                            if ('alert' in o) alert = (o.alert === true);
+                            if ('result' in o) 
+                                result = (o.result === true);
+                            if (('message' in o) && o.message) 
+                                message = o.message;
+                            if ('alert' in o) 
+                                alert = (o.alert === true);
                         }
                     }
                     
                     if (result) {
                         _this.$form.reset();
-                        if (alert) window.alert(message);
-                        else _this.notify('success', (_this.success ? _this.success : message));
+                        if (alert) 
+                            window.alert(message);
+                        else 
+                            _this.notify('success', (_this.success ? _this.success : message));
                     } else {
-                        if (alert) window.alert(message);
-                        else _this.notify('failure', (_this.failure ? _this.failure : message));
+                        if (alert) 
+                            window.alert(message);
+                        else 
+                            _this.notify('failure', (_this.failure ? _this.failure : message));
                     }
                     
                     _this.$submit.disabled = false;
