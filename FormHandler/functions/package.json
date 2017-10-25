@@ -1,0 +1,11 @@
+{
+  "name": "functions",
+  "description": "Form Handler for DJRaval Web",
+  "dependencies": {
+    "firebase-admin": "^4.1.1",
+    "firebase-functions": "^0.7.0",
+    "nodemailer": "^4.0.1",
+    "cors": "^2.8.1"
+  },
+  "private": true
+}
